@@ -1,0 +1,42 @@
+<button [routerLink]="['/products']">Back</button>
+<div *ngIf="product">
+    <div>
+        <span>Name : </span>
+        <span>{{product.product_name}}</span>
+    </div>
+    <div>
+        <span>Price : </span>
+        <span>{{product.product_price}}</span>
+    </div>
+    <div>
+        <span>Description : </span>
+        <span>{{product.product_description}}</span>
+    </div>
+
+    <table>
+        <thead>
+            <th>Comments</th>
+            <th>Rating</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let review of reviews">
+                <td class="comments" [title]="review.review_details">{{review.review_details}}</td>
+                <td class="ratings">{{review.review_rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form [formGroup]="reviewForm" class="review-form">
+        <div class="form-elements">
+            <span>Comments: </span>
+            <input type="text" formControlName="review_details">
+        </div>
+        <div class="form-elements">
+            <span>Rating: </span>
+            <input type="text" formControlName="review_rating">
+        </div>
+
+        <button type="button" (click)="addReview()" class="form-elements review-submit">Add Review</button>
+    </form>
+
+</div>

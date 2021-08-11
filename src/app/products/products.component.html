@@ -1,0 +1,17 @@
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>
+                <a href="javascript:void(0)" [routerLink]="['/product', product._id]">{{product.product_name}}</a>
+            </td>
+            <td>{{product.product_price}}</td>
+            <td><button (click)="addProduct(product)">Add</button></td>
+        </tr>
+    </tbody>
+</table>
